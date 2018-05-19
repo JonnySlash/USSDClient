@@ -8,12 +8,19 @@ namespace FintechUssdClient
 {
     class UssdClient
     {
-        public String sendVoucherRequest()
+        public String sendTranRequest(String merchantNo, String voucherNo)
         {
             String result = null;
 
-            result = "voucher";
+            result = "0";
             return result;
+        }
+
+        public String receiveVoucherGift()
+        {
+            String voucherDetails = "Voucher no: 4593, Password: 675";
+
+            return voucherDetails;
         }
     }
 }

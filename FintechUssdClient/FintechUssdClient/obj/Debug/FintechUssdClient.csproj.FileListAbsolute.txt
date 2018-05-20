@@ -1,8 +1,13 @@
 C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\FintechUssdClient.exe.config
-C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\obj\Debug\FintechUssdClient.csprojResolveAssemblyReference.cache
 C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\FintechUssdClient.exe
 C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\FintechUssdClient.pdb
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\System.Net.Http.dll
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\Newtonsoft.Json.xml
 C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\obj\Debug\FintechUssdClient.exe
 C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\obj\Debug\FintechUssdClient.pdb
-C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\Newtonsoft.Json.dll
-C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SlashWizard\Documents\My files\Flash Hackathorn\USSDClient\FintechUssdClient\FintechUssdClient\obj\Debug\FintechUssdClient.csprojResolveAssemblyReference.cache

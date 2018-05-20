@@ -38,11 +38,11 @@ namespace FintechUssdClient
                             String[] pars = tranReqInput.Split(' ');
                             String voucherNo = pars[0];
                             String tranAmount = pars[1];
-                            Console.WriteLine("_______________________Transaction request sent___________________");
+                            Console.WriteLine("_______________________Transaction Request Sent___________________");
                             Console.WriteLine("Merchant Cell no: " + merchantNo);
                             Console.WriteLine("Customer Cell no:" + customerNo);
-                            Console.WriteLine("Voucher number: " + voucherNo);
-                            Console.WriteLine("Transaction amount: " + tranAmount);
+                            Console.WriteLine("Voucher Number: " + voucherNo);
+                            Console.WriteLine("Transaction Amount: R" + tranAmount);
                             GetAsync(voucherNo, tranAmount).Wait();
 
                         }
@@ -73,7 +73,43 @@ namespace FintechUssdClient
 
                 var results = await
                    httpClient.GetStringAsync("/startTransaction/" + tranAmount + "/" + merchantNo + "/" + voucherNo);
-                Console.WriteLine("Results " + results);
+                JObject response = JObject.Parse(results);
+                
+                if (response != null)
+                {
+                    String newAmount = (String) response.GetValue("amountReceived");
+                    
+                    bool approved = false;
+                    int amount = 0;
+
+                    if (newAmount.Length != 0)
+                    {
+                         amount = Convert.ToInt32(newAmount);
+                        if (amount != 0)
+                        {
+                            approved = true;
+                        }
+                        
+                    }
+
+                    if (approved)
+                    {
+                        Console.WriteLine(DateTime.Now +  "___________________Transaction Request Approved For Voucher Number: " + voucherNo + "________________________");
+                        Console.WriteLine("New Wallet Balance: R" + amount);
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        Console.WriteLine(DateTime.Now + "___________________Transaction Request Declined For Voucher Number: " + voucherNo + "________________________");
+                        Console.WriteLine("");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Could Not Understand Response From Server. ");
+                    Console.WriteLine("");
+                }
+                   
             }
         }
     }
@@ -144,11 +180,11 @@ namespace FintechUssdClient
 
                         String dataStr = queryItems["data"].Replace("\"\"", "'");
                         JObject data = (JObject)JObject.Parse(dataStr);
-                        Console.WriteLine("voucher id: " + data.GetValue("VoucherId"));
-                        Console.WriteLine("for customer phone number: " + data.GetValue("Owner"));
-                        Console.WriteLine("from sender phone number: " + data.GetValue("sender"));
+                        Console.WriteLine("Voucher id: " + data.GetValue("VoucherId"));
+                        Console.WriteLine("For customer phone number: " + data.GetValue("Owner"));
+                        Console.WriteLine("From sender phone number: " + data.GetValue("sender"));
                         Console.WriteLine("Password: " + data.GetValue("PassKey"));
-                        Console.WriteLine("amount: " + data.GetValue("Amount"));
+                        Console.WriteLine("Amount: R" + data.GetValue("Amount"));
                       
                     }
                     context.Response.StatusCode = (int)HttpStatusCode.OK;
@@ -169,8 +205,8 @@ namespace FintechUssdClient
                         merchantNo = (String) data.GetValue("mechCellNo");
                         Console.WriteLine("From merchant phone number: " + merchantNo);
                         voucherNo = (String) data.GetValue("voucherNumber");
-                        Console.WriteLine("Voucher number: " + voucherNo);
-                        Console.WriteLine("amount: " + data.GetValue("amount"));
+                        Console.WriteLine("Voucher Number: " + voucherNo);
+                        Console.WriteLine("Amount: R" + data.GetValue("amount"));
                     }
                     Console.WriteLine("Please confirm the transaction request by selecting the correct menu option below:");
                     Console.WriteLine("1. Approve");
@@ -179,7 +215,7 @@ namespace FintechUssdClient
                    
                     if (selectStr.Equals("1"))
                     {
-                        Console.WriteLine("Please enter the password for voucher number " + voucherNo);
+                        Console.WriteLine("Please Enter The Password For Voucher Number " + voucherNo);
                         String password =  Console.ReadLine();
                         if (password.Length != 0)
                         {
@@ -202,6 +238,18 @@ namespace FintechUssdClient
                         context.Response.StatusCode = (int)HttpStatusCode.OK;
                         rsp = "ok";
                     }
+                }
+
+                else if (menuOption.Equals("7"))
+                {
+                    if (queryItems.ContainsKey("data"))
+                    {
+                        String dataStr = queryItems["data"].Replace("\"\"", "'");
+                        JObject data = (JObject)JObject.Parse(dataStr);
+                        String newAmount = (String)data.GetValue("newAmount");
+                        Console.WriteLine("Voucher Balance Updated. New Voucher Amount: R" + newAmount);
+                    }
+                    
                 }
 
             }
